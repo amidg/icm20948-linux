@@ -27,7 +27,8 @@ add_library(${PROJECT_NAME} src/icm20948.c)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 # Link libraries (if needed)
-# For I2C operations, we typically don't need extra linking on Linux
+target_link_libraries(${PROJECT_NAME} PRIVATE ${GSL_LIBRARIES})
+
 # But we can add compiler flags if needed
 target_compile_options(${PROJECT_NAME} PRIVATE ${COMPILE_OPTIONS})
 
