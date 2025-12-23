@@ -54,7 +54,7 @@ typedef struct {
 } icm20948_config_t;
 
 typedef struct {
-    float ax, ay, az,
+    double ax, ay, az,
           gx, gy, gz,
           mx, my, mz,
           temp;

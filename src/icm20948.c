@@ -259,47 +259,47 @@ int icm20948_get_sensors_calibrated(const icm20948* device) {
 
     // apply calibrated data
     int status = 0;
-    //if (device->offset != NULL) {
-    //    // apply to the gyroscope
-    //    device->data->gx -= device->offset->gx;
-    //    device->data->gy -= device->offset->gy;
-    //    device->data->gz -= device->offset->gz;
+    if (device->offset != NULL) {
+        // apply to the gyroscope
+        device->data->gx -= device->offset->gx;
+        device->data->gy -= device->offset->gy;
+        device->data->gz -= device->offset->gz;
 
-    //    // apply gsl_fit_linear_est
-    //    double error;
-    //    status = gsl_fit_linear_est(
-    //        device->data->ax,
-    //        device->offset->ax_c0,
-    //        device->offset->ax_c1,
-    //        device->offset->ax_cov00,
-    //        device->offset->ax_cov01,
-    //        device->offset->ax_cov11,
-    //        &(device->data->ax),
-    //        &error
-    //    );
+        // apply gsl_fit_linear_est
+        double error;
+        status = gsl_fit_linear_est(
+            device->data->ax,
+            device->offset->ax_c0,
+            device->offset->ax_c1,
+            device->offset->ax_cov00,
+            device->offset->ax_cov01,
+            device->offset->ax_cov11,
+            &(device->data->ax),
+            &error
+        );
 
-    //    status = gsl_fit_linear_est(
-    //        device->data->ay,
-    //        device->offset->ay_c0,
-    //        device->offset->ay_c1,
-    //        device->offset->ay_cov00,
-    //        device->offset->ay_cov01,
-    //        device->offset->ay_cov11,
-    //        &(device->data->ay),
-    //        &error
-    //    );
+        status = gsl_fit_linear_est(
+            device->data->ay,
+            device->offset->ay_c0,
+            device->offset->ay_c1,
+            device->offset->ay_cov00,
+            device->offset->ay_cov01,
+            device->offset->ay_cov11,
+            &(device->data->ay),
+            &error
+        );
 
-    //    status = gsl_fit_linear_est(
-    //        device->data->az,
-    //        device->offset->az_c0,
-    //        device->offset->az_c1,
-    //        device->offset->az_cov00,
-    //        device->offset->az_cov01,
-    //        device->offset->az_cov11,
-    //        &(device->data->az),
-    //        &error
-    //    );
-    //}
+        status = gsl_fit_linear_est(
+            device->data->az,
+            device->offset->az_c0,
+            device->offset->az_c1,
+            device->offset->az_cov00,
+            device->offset->az_cov01,
+            device->offset->az_cov11,
+            &(device->data->az),
+            &error
+        );
+    }
 
     return status;
 }
