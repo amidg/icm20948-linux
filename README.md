@@ -49,6 +49,29 @@ Requires 4 orientations and uses GSL to perform correct linear fit for all three
 3. Repeat 4 times according to the directions specified in the code (Z UP, Z side and X down, Z down, Y up) or modify code according to your need
 4. Receive calibration numbers. They will look something like
 
+Example parameters
+
+| Parameter | Value     |
+|-----------|-----------|
+| **Gyro X** | 0.001727 |
+| **Gyro Y** | 0.024315 |
+| **Gyro Z** | -0.008772 |
+| **Accel X c0** | 0.001567 |
+| **Accel X c1** | 1.002769 |
+| **Accel X cov00** | 0.000057 |
+| **Accel X cov01** | 0.000058 |
+| **Accel X cov11** | 0.000230 |
+| **Accel Y c0** | 0.017529 |
+| **Accel Y c1** | 0.993337 |
+| **Accel Y cov00** | 0.001211 |
+| **Accel Y cov01** | 0.001250 |
+| **Accel Y cov11** | 0.004643 |
+| **Accel Z c0** | -0.036225 |
+| **Accel Z c1** | 0.986753 |
+| **Accel Z cov00** | 0.000407 |
+| **Accel Z cov01** | -0.000029 |
+| **Accel Z cov11** | 0.000792 |
+
 ### API
 
 - `icm20948_init(icm20948* device)` allows to initialize device with your configuration parameters. If configuration parameters are not provided, it will use default ones. See datasheets in the docs section
